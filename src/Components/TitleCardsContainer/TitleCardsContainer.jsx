@@ -41,7 +41,7 @@ function TitleCardsContainer(props) {
   const handleNext = () => {
     if (containerRef.current) {
       const containerWidth = containerRef.current.clientWidth;
-      const movieCardWidth = 270; // Average width of a movie card
+      const movieCardWidth = 220;
       const calculatedMoviesPerSlide = Math.floor(
         containerWidth / movieCardWidth
       );

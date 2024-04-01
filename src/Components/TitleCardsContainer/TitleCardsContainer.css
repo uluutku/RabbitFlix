@@ -3,7 +3,7 @@
   height: 450px;
   margin-left: 20px;
   margin-top: 30px;
-  overflow: hidden; /* Added to hide overflow content */
+  overflow: hidden;
 }
 
 .container-title {
@@ -28,11 +28,11 @@
   max-height: 150px;
   border-radius: 8px;
   margin-right: 10px;
-  transition: transform 0.3s ease; /* Changed transition property */
+  transition: transform 0.3s ease;
 }
 
 .title-card-item:hover {
-  transform: scale(1.2); /* Fixed hover scaling */
+  transform: scale(1.2);
 }
 
 .title-card-image {

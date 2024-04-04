@@ -16,16 +16,19 @@ function MovieDetail() {
           `https://api.themoviedb.org/3/movie/${id}?api_key=942e67125be0a0d10153e54af62e1e5e&language=tr-TR&append_to_response=videos`
         );
         setMovie(response.data);
-        console.log(response.data);
+        console.log("Response data: ", response.data);
+        console.log("Video Results: ", response.data.videos.results);
 
         const trailer = response.data.videos.results.find(
           (video) => video.type === "Trailer"
         );
         if (trailer) {
+          console.log("Trailer key found: ", trailer.key);
           setTrailerKey(trailer.key);
         }
       } catch (error) {
         setTrailerKey(ru__6sQ_bpE);
+        console.log("Trailer key not found applying: ", trailer.key);
         console.error("Error fetching movie details:", error);
       }
     };

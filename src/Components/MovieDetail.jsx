@@ -18,6 +18,15 @@ function MovieDetail() {
         setMovie(response.data);
         console.log("Response data: ", response.data);
         console.log("Video Results: ", response.data.videos.results);
+        if (response.data.videos.results.length === 0) {
+          setTrailerKey(null);
+          console.log(
+            "No video found for this movie. Applying default trailer."
+          );
+          setTrailerKey("ru__6sQ_bpE");
+          console.log("Standart rabbit applying: ", trailer.key);
+          return;
+        }
 
         const trailer = response.data.videos.results.find(
           (video) => video.type === "Trailer"
@@ -27,8 +36,6 @@ function MovieDetail() {
           setTrailerKey(trailer.key);
         }
       } catch (error) {
-        setTrailerKey(ru__6sQ_bpE);
-        console.log("Trailer key not found applying: ", trailer.key);
         console.error("Error fetching movie details:", error);
       }
     };
@@ -55,11 +62,33 @@ function MovieDetail() {
             Çıkış Tarihi: {movie.release_date}
           </p>
           <p className="movie-vote-average">
-            Ortalama Oy: {movie.vote_average + "/10"}
+            Ortalama Oy: {movie.vote_average}/10
+            {movie.vote_average < 6 && movie.vote_average > 4 ? (
+              <p style={{ fontStyle: "italic" }}>
+                🐰 Davşan yorumu: 👍 "Bu filmin puanı harika görünüyor." -Davşan
+              </p>
+            ) : movie.vote_average <= 4 ? (
+              <p style={{ fontStyle: "italic" }}>
+                🐰 Davşan yorumu: 👎👎 "Bu film benim için bile fazla düşük
+                puanlı, izlemeni önermem." -Davşan
+              </p>
+            ) : (
+              <p style={{ fontStyle: "italic" }}>
+                🐰 Davşan yorumu: 👎 "Bu filmin puanı çok yüksek, izlemeni
+                önermem." - Davşan
+              </p>
+            )}
           </p>
           {trailerKey && (
             <div className="trailer-container">
-              <h3>Trailer Videosu:</h3>
+              {trailerKey === "ru__6sQ_bpE" ? (
+                <h3>
+                  🕳️ Bu film için bir trailer bulamadık, işte izlemen için bir
+                  Davşan videosu:
+                </h3>
+              ) : (
+                <h3>📺 Trailer Videosu:</h3>
+              )}
               <ReactPlayer
                 url={`https://www.youtube.com/watch?v=${trailerKey}`}
                 controls

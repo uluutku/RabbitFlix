@@ -1,27 +1,34 @@
 .movie-detail-container {
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  align-items: flex-start;
+  width: 100vw;
+  height: 100vh;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 10px;
 }
 
 .movie-detail {
   display: flex;
-  margin-top: 150px;
+  flex-direction: column;
+  margin-top: 100px;
+  max-width: 1200px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .movie-detail-poster {
-  width: 400px;
-  height: 600px;
-  margin-right: 50px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .movie-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   width: 100%;
+  padding: 0 20px;
 }
 
 .movie-title {
@@ -41,8 +48,29 @@
 }
 
 .trailer-container {
-  margin-top: 50px;
   width: 100%;
-  height: 100%;
-  justify-content: center;
+  margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+  .movie-detail {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .movie-detail-poster {
+    width: 300px;
+    margin-bottom: 0;
+    margin-right: 50px;
+  }
+
+  .movie-info {
+    padding: 0;
+    max-width: 600px;
+    min-width: 100px;
+  }
+
+  .trailer-container {
+    margin-top: 0;
+  }
 }

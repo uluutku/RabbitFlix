@@ -13,7 +13,7 @@ function MovieDetail() {
     const fetchMovieDetails = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=5b9c3630ad1996e84b1b8d95882bc995&language=en-US&append_to_response=videos`
+          `https://api.themoviedb.org/3/movie/${id}?api_key=942e67125be0a0d10153e54af62e1e5e&language=en-US&append_to_response=videos`
         );
         setMovie(response.data);
 
@@ -58,6 +58,7 @@ function MovieDetail() {
               <ReactPlayer
                 url={`https://www.youtube.com/watch?v=${trailerKey}`}
                 controls
+                width="100%"
               />
             </div>
           )}

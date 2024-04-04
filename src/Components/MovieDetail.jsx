@@ -62,8 +62,8 @@ function MovieDetail() {
             Çıkış Tarihi: {movie.release_date}
           </p>
           <p className="movie-vote-average">
-            Ortalama Oy: {movie.vote_average}/10
-            {movie.vote_average < 6 && movie.vote_average > 4 ? (
+            Ortalama Puan: {movie.vote_average}/10.0
+            {movie.vote_average > 6.5 && movie.vote_average < 7.5 ? (
               <p style={{ fontStyle: "italic" }}>
                 🐰 Davşan yorumu: 👍 "Bu filmin puanı harika görünüyor." -Davşan
               </p>

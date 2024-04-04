@@ -6,6 +6,19 @@ import MovieDetail from "./Components/MovieDetail";
 
 const API_KEY = "942e67125be0a0d10153e54af62e1e5e";
 
+const GENRES = {
+  Önerilen: "popularity.desc",
+  Romantik: 10749,
+  Müzikal: 10402,
+  Komedi: 35,
+  Aksiyon: 28,
+  Korku: 27,
+  Gerilim: 53,
+  Animasyon: 16,
+  Drama: 18,
+  BilimKurgu: 878,
+};
+
 function App() {
   return (
     <>
@@ -16,24 +29,25 @@ function App() {
           element={
             <div className="card-sections-container">
               <TitleCardsContainer
-                key="recommendations"
-                titleText="Tam Davşanlık Öneriler"
+                key="popular"
+                titleText="Önerilen Davşan Filmleri"
                 apiKey={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
               />
-              <TitleCardsContainer
-                key="romantic"
-                apiKey={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=10749&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
-                titleText="Romantik Filmler"
-              />
-              <TitleCardsContainer
-                key="musical"
-                titleText="Muzikal Davşan Filmleri"
-                apiKey={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=10402&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
-              />
+              {Object.keys(GENRES)
+                .filter((genreKey) => genreKey !== "Önerilen")
+                .map((genreKey) => (
+                  <TitleCardsContainer
+                    key={genreKey}
+                    titleText={`${
+                      genreKey.charAt(0).toUpperCase() + genreKey.slice(1)
+                    } Davşan Filmleri`}
+                    apiKey={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=${GENRES[genreKey]}&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
+                  />
+                ))}
             </div>
           }
         />
-        <Route path="/detay/:id" element={<MovieDetail />} />{" "}
+        <Route path="/detay/:id" element={<MovieDetail />} />
       </Routes>
     </>
   );

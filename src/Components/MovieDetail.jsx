@@ -16,6 +16,7 @@ function MovieDetail() {
           `https://api.themoviedb.org/3/movie/${id}?api_key=942e67125be0a0d10153e54af62e1e5e&language=tr-TR&append_to_response=videos`
         );
         setMovie(response.data);
+        console.log(response.data);
 
         const trailer = response.data.videos.results.find(
           (video) => video.type === "Trailer"
@@ -24,6 +25,7 @@ function MovieDetail() {
           setTrailerKey(trailer.key);
         }
       } catch (error) {
+        setTrailerKey(ru__6sQ_bpE);
         console.error("Error fetching movie details:", error);
       }
     };

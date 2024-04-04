@@ -30,7 +30,7 @@ function App() {
             <div className="card-sections-container">
               <TitleCardsContainer
                 key="popular"
-                titleText="Önerilen Davşan Filmleri"
+                titleText="Önerilen Filmler"
                 apiKey={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
               />
               {Object.keys(GENRES)
@@ -40,8 +40,8 @@ function App() {
                     key={genreKey}
                     titleText={`${
                       genreKey.charAt(0).toUpperCase() + genreKey.slice(1)
-                    } Davşan Filmleri`}
-                    apiKey={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=${GENRES[genreKey]}&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
+                    } Filmler`}
+                    apiKey={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=tr-TR&with_genres=${GENRES[genreKey]}&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
                   />
                 ))}
             </div>

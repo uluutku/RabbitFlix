@@ -5,7 +5,7 @@ import TitleCardsContainer from "./Components/TitleCardsContainer/TitleCardsCont
 import MovieDetail from "./Components/MovieDetail";
 
 // Define constant for API key
-const API_KEY = "5b9c3630ad1996e84b1b8d95882bc995";
+const API_KEY = "942e67125be0a0d10153e54af62e1e5e";
 
 function App() {
   return (

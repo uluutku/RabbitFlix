@@ -4,7 +4,6 @@ import Header from "./Components/Header/Header";
 import TitleCardsContainer from "./Components/TitleCardsContainer/TitleCardsContainer";
 import MovieDetail from "./Components/MovieDetail";
 
-// Define constant for API key
 const API_KEY = "942e67125be0a0d10153e54af62e1e5e";
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
         <Route
           path="/"
           element={
-            // Use the element prop instead of children for Routes
             <div className="card-sections-container">
               <TitleCardsContainer
                 key="recommendations"

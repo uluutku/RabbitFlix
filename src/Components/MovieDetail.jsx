@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom"; // Assuming you're using React Router for navigation
+import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
-import "./MovieDetail.css"; // Import your custom CSS file for MovieDetail styling
+import "./MovieDetail.css";
 
 function MovieDetail() {
   const [movie, setMovie] = useState(null);
   const [trailerKey, setTrailerKey] = useState(null);
-  const { id } = useParams(); // Get the movie ID from the URL params
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -17,7 +17,6 @@ function MovieDetail() {
         );
         setMovie(response.data);
 
-        // Find trailer video key
         const trailer = response.data.videos.results.find(
           (video) => video.type === "Trailer"
         );

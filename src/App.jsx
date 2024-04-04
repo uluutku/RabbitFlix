@@ -4,7 +4,7 @@ import Header from "./Components/Header/Header";
 import TitleCardsContainer from "./Components/TitleCardsContainer/TitleCardsContainer";
 import MovieDetail from "./Components/MovieDetail";
 
-const API_KEY = "942e67125be0a0d10153e54af62e1e5e";
+const API_KEY = "30556d0cb32a2bb2d833c912c4ffec9f";
 
 const GENRES = {
   Önerilen: "popularity.desc",

@@ -18,7 +18,7 @@ function Header() {
           </Link>
         </div>
         <div className="menu-toggle" onClick={toggleMenu}>
-          <span className={`menu-icon ${menuOpen ? "open" : ""}`}></span>
+          <span className={`menu-icon ${menuOpen ? "open" : ""}`}>🎩</span>
         </div>
         <ul className={`menu ${menuOpen ? "open" : ""}`}>
           <li>

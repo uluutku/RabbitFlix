@@ -13,7 +13,7 @@ function MovieDetail() {
     const fetchMovieDetails = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=942e67125be0a0d10153e54af62e1e5e&language=en-US&append_to_response=videos`
+          `https://api.themoviedb.org/3/movie/${id}?api_key=942e67125be0a0d10153e54af62e1e5e&language=tr-TR&append_to_response=videos`
         );
         setMovie(response.data);
 
@@ -47,14 +47,14 @@ function MovieDetail() {
           <h2 className="movie-title">{movie.title}</h2>
           <p className="movie-overview">{movie.overview}</p>
           <p className="movie-release-date">
-            Release Date: {movie.release_date}
+            Çıkış Tarihi: {movie.release_date}
           </p>
           <p className="movie-vote-average">
-            Vote Average: {movie.vote_average}
+            Ortalama Oy: {movie.vote_average + "/10"}
           </p>
           {trailerKey && (
             <div className="trailer-container">
-              <h3>Trailer</h3>
+              <h3>Trailer Videosu:</h3>
               <ReactPlayer
                 url={`https://www.youtube.com/watch?v=${trailerKey}`}
                 controls

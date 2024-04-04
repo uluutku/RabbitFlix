@@ -1,13 +1,14 @@
-import "./TitleCardsContainer.css";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import MovieTitle from "../MovieTitle/MovieTitle";
+import Splide from "@splidejs/splide";
+import "@splidejs/splide/dist/css/splide.min.css";
+import "./TitleCardsContainer.css"; // Import your custom CSS file
 
 function TitleCardsContainer(props) {
   const [movies, setMovies] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const containerRef = useRef(null);
-  const [moviesPerSlide, setMoviesPerSlide] = useState(0);
+  const containerClass = `title-cards-container-${props.titleText
+    .replace(/\s+/g, "-")
+    .toLowerCase()}`; // Generate unique class name
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -21,71 +22,39 @@ function TitleCardsContainer(props) {
     };
 
     fetchMovies();
-  }, []);
+  }, [props.apiKey]);
 
   useEffect(() => {
-    if (containerRef.current) {
-      const containerWidth = containerRef.current.clientWidth;
-      const movieCardWidth = 200;
-      const calculatedMoviesPerSlide = Math.floor(
-        containerWidth / movieCardWidth
-      );
-      setMoviesPerSlide(calculatedMoviesPerSlide);
-    }
-  }, [movies, currentIndex]);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => Math.max(0, prevIndex - 1));
-  };
-
-  const handleNext = () => {
-    if (containerRef.current) {
-      const containerWidth = containerRef.current.clientWidth;
-      const movieCardWidth = 220;
-      const calculatedMoviesPerSlide = Math.floor(
-        containerWidth / movieCardWidth
-      );
-      const totalMovies = movies.length;
-      const maxIndex = Math.ceil(totalMovies / calculatedMoviesPerSlide) - 1;
-      setCurrentIndex((prevIndex) => Math.min(maxIndex, prevIndex + 1));
-    }
-  };
+    new Splide(`.${containerClass} .splide`, {
+      type: "slide",
+      gap: "10px",
+      autoWidth: true,
+      pagination: false,
+    }).mount();
+  }, [movies, containerClass]);
 
   return (
-    <div className="title-cards-container-main">
+    <div className={`title-cards-container-main ${containerClass}`}>
       <div className="container-title">
         <h1 className="container-title-text">{props.titleText}</h1>
       </div>
-      <div className="title-cards-container" ref={containerRef}>
-        <button
-          className="prev-button"
-          onClick={handlePrev}
-          disabled={currentIndex === 0}
-          hidden={currentIndex === 0}
-        >
-          &larr;
-        </button>
-        {movies.length > 0 &&
-          movies
-            .slice(
-              currentIndex * moviesPerSlide,
-              currentIndex * moviesPerSlide + moviesPerSlide
-            )
-            .map((movie) => (
-              <MovieTitle
-                key={movie.id}
-                imgAdress={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              />
+
+      <div className={`splide ${containerClass}`}>
+        <div className="splide__track">
+          <ul className="splide__list">
+            {movies.map((movie) => (
+              <li className="splide__slide" key={movie.id}>
+                <a href={`/detay/${movie.id}`}>
+                  <img
+                    className="movie-poster"
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                </a>
+              </li>
             ))}
-        <button
-          className="next-button"
-          onClick={handleNext}
-          disabled={
-            currentIndex >= Math.ceil(movies.length / moviesPerSlide) - 1
-          }
-        >
-          &rarr;
-        </button>
+          </ul>
+        </div>
       </div>
     </div>
   );

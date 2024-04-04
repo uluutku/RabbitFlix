@@ -63,11 +63,11 @@ function MovieDetail() {
           </p>
           <p className="movie-vote-average">
             Ortalama Puan: {movie.vote_average}/10.0
-            {movie.vote_average > 6.5 && movie.vote_average < 7.5 ? (
+            {movie.vote_average >= 6.5 && movie.vote_average <= 7.5 ? (
               <p style={{ fontStyle: "italic" }}>
                 🐰 Davşan yorumu: 👍 "Bu filmin puanı harika görünüyor." -Davşan
               </p>
-            ) : movie.vote_average <= 4 ? (
+            ) : movie.vote_average < 6.5 ? (
               <p style={{ fontStyle: "italic" }}>
                 🐰 Davşan yorumu: 👎👎 "Bu film benim için bile fazla düşük
                 puanlı, izlemeni önermem." -Davşan

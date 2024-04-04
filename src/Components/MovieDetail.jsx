@@ -32,7 +32,7 @@ function MovieDetail() {
   }, [id]);
 
   if (!movie) {
-    return <div className="loading">Loading...</div>;
+    return <div className="loading">Yükleniyor...</div>;
   }
 
   return (

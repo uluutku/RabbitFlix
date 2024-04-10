@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&family=Shadows+Into+Light&display=swap");
 
 .hero-main {
   background-image: url("../../assets/rabbitflix-landing-hero.jpg");
@@ -44,7 +45,7 @@
 
 .hero-cta-card-subtitle {
   font-size: 2rem;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Rowdies", sans-serif;
   text-align: left;
 }
 
@@ -53,13 +54,13 @@
   margin-bottom: 20px;
   max-width: 500px;
   text-align: left;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Rowdies", sans-serif;
   font-weight: lighter;
 }
 
 .hero-cta-card-button-movie,
 .hero-cta-card-button-serie {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Rowdies", sans-serif;
   background-color: #f98f41;
   color: white;
   padding: 10px 20px;

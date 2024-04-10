@@ -55,6 +55,7 @@
 
 @media only screen and (max-width: 600px) {
   .footer-container {
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     padding: 10px;
@@ -62,10 +63,10 @@
 
   .social-media-container {
     display: flex;
-    flex-direction: column; /* Align vertically for mobile */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 20px; /* Add margin for better spacing */
+    margin-top: 50px; /* Add margin for better spacing */
   }
 
   .nav-links {

@@ -95,7 +95,7 @@ a {
   transition: color 0.3s ease-in-out; /* Added transition */
 }
 
-.nav-link:hover, /* Added hover effect */
+.nav-link:hover,
 .nav-item:hover {
   color: #e50914;
 }
@@ -107,7 +107,7 @@ a {
 
   .menu {
     position: absolute;
-    top: 80px;
+    top: 50px;
     left: 0;
     width: 100%;
     background-color: #000;
@@ -119,9 +119,11 @@ a {
 
   .menu.open {
     display: flex;
+    gap: 20px;
   }
 
-  .nav-item {
-    margin: 10px 0;
+  .nav-link {
+    margin: 0px 20px;
+    margin-top: 20px;
   }
 }

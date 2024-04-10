@@ -32,7 +32,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/movies" className="nav-link">
+            <Link to="/series" className="nav-link">
               Diziler
             </Link>
           </li>

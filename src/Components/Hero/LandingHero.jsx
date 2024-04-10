@@ -11,16 +11,23 @@ function LandingHero() {
           <h2 className="hero-cta-card-subtitle">
             En Popüler Filmler ve Diziler
           </h2>
+          <p className="hero-cta-card-description">
+            RabbitFlix, en popüler filmleri ve dizileri sizin için bir araya
+            getiren bir NetFlix klonu projesidir. Frontend becerilerini
+            geliştirmek amacı ile yapılmış bu proje, The Movie Database API'ını
+            kullanarak en popüler filmleri ve dizileri listeler.
+          </p>
+          <Link to="/movies">
+            <button className="hero-cta-card-button-movie">
+              Filmleri İncele
+            </button>
+          </Link>
+          <Link to="/series">
+            <button className="hero-cta-card-button-serie">
+              Dizileri İncele
+            </button>
+          </Link>
         </div>
-
-        <p className="hero-cta-card-description">
-          Rabbitflix, bir netflix klonudur. Rabbitflix ile en popüler filmleri
-          ve dizilerin trailerlarını izleyebilir, detaylarını
-          inceleyebilirsiniz.
-        </p>
-        <Link to="/movies">
-          <button className="hero-cta-card-button">Filmleri İncele</button>
-        </Link>
       </div>
     </div>
   );

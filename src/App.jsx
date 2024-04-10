@@ -8,7 +8,7 @@ import Footer from "./Components/Footer/Footer";
 
 const API_KEY = "30556d0cb32a2bb2d833c912c4ffec9f";
 
-const GENRES = {
+const MOVIEGENRES = {
   Önerilen: "popularity.desc",
   Romantik: 10749,
   Müzikal: 10402,
@@ -19,6 +19,15 @@ const GENRES = {
   Animasyon: 16,
   Drama: 18,
   BilimKurgu: 878,
+};
+
+const SERIEGENRES = {
+  Önerilen: "popularity.desc",
+  Romantik: 10749,
+  Müzikal: 10402,
+  Komedi: 35,
+  Animasyon: 16,
+  Drama: 18,
 };
 
 function App() {
@@ -37,15 +46,15 @@ function App() {
                   titleText="Önerilen Filmler"
                   apiKey={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
                 />
-                {Object.keys(GENRES)
+                {Object.keys(MOVIEGENRES)
                   .filter((genreKey) => genreKey !== "Önerilen")
                   .map((genreKey) => (
                     <TitleCardsContainer
                       key={genreKey}
                       titleText={`${
                         genreKey.charAt(0).toUpperCase() + genreKey.slice(1)
-                      } Filmler`}
-                      apiKey={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=tr-TR&with_genres=${GENRES[genreKey]}&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
+                      } Türünde Filmler`}
+                      apiKey={`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=tr-TR&with_genres=${MOVIEGENRES[genreKey]}&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
                     />
                   ))}
               </div>
@@ -60,15 +69,15 @@ function App() {
                   titleText="Önerilen Diziler"
                   apiKey={`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
                 />
-                {Object.keys(GENRES)
+                {Object.keys(SERIEGENRES)
                   .filter((genreKey) => genreKey !== "Önerilen")
                   .map((genreKey) => (
                     <TitleCardsContainer
                       key={genreKey}
                       titleText={`${
                         genreKey.charAt(0).toUpperCase() + genreKey.slice(1)
-                      } Diziler`}
-                      apiKey={`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=tr-TR&with_genres=${GENRES[genreKey]}&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
+                      } Türünde Diziler`}
+                      apiKey={`https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=tr-TR&with_genres=${SERIEGENRES[genreKey]}&sort_by=popularity.desc&include_adult=true&include_video=false&page=1`}
                     />
                   ))}
               </div>

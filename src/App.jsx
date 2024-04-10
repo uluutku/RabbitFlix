@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import TitleCardsContainer from "./Components/TitleCardsContainer/TitleCardsContainer";
 import MovieDetail from "./Components/MovieDetail";
+import LandingHero from "./Components/Hero/LandingHero";
+import Footer from "./Components/Footer/Footer";
 
 const API_KEY = "30556d0cb32a2bb2d833c912c4ffec9f";
 
@@ -24,8 +26,9 @@ function App() {
     <>
       <Header />
       <Routes>
+        <Route path="/" element={<LandingHero />} />
         <Route
-          path="/"
+          path="/movies"
           element={
             <div className="card-sections-container">
               <TitleCardsContainer
@@ -49,6 +52,7 @@ function App() {
         />
         <Route path="/detay/:id" element={<MovieDetail />} />
       </Routes>
+      <Footer />
     </>
   );
 }

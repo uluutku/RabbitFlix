@@ -18,6 +18,9 @@ a {
 }
 
 .header-main {
+  display: block;
+  justify-content: space-around;
+  align-items: center;
   background: #000;
   position: fixed;
   top: 0;

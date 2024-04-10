@@ -27,7 +27,14 @@ function Header() {
             </Link>
           </li>
           <li>
-            <p className="nav-item">Ayarlar</p>
+            <Link to="/movies" className="nav-link">
+              Filmler
+            </Link>
+          </li>
+          <li>
+            <Link to="/movies" className="nav-link">
+              Diziler
+            </Link>
           </li>
         </ul>
       </div>

@@ -46,11 +46,6 @@ function Header() {
               Filmler
             </Link>
           </li>
-          <li>
-            <Link to="/series" className="nav-link">
-              Diziler
-            </Link>
-          </li>
         </ul>
       </div>
     </div>

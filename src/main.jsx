@@ -6,8 +6,6 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    {" "}
-    {/* Wrap App component with BrowserRouter */}
     <App />
   </BrowserRouter>
 );

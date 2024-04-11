@@ -22,11 +22,6 @@ function LandingHero() {
               Filmleri İncele
             </button>
           </Link>
-          <Link to="/series">
-            <button className="hero-cta-card-button-serie">
-              Dizileri İncele
-            </button>
-          </Link>
         </div>
       </div>
     </div>

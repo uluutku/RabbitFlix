@@ -15,7 +15,16 @@ function Footer() {
         </div>
       </div>
       <div className="copyright-text">
-        <p>&copy; 2024 RabbitFlix. Made with ❤️ by 🐻</p>
+        <p>
+          &copy; 2024 RabbitFlix. Made with ❤️ by{" "}
+          <a
+            href="http://uxu.epizy.com/sites/iPortfolio/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🪄
+          </a>
+        </p>
       </div>
       <div className="social-media-container">
         <h4>Make sure chase the rabbit on:</h4>

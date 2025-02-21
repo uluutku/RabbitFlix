@@ -13,7 +13,7 @@ function MovieDetail() {
     const fetchMovieDetails = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=30556d0cb32a2bb2d833c912c4ffec9f&language=tr-TR&append_to_response=videos`
+          `https://api.themoviedb.org/3/movie/${id}?api_key=52bdf0c8ba64d8f67f45c9f265769b80&language=tr-TR&append_to_response=videos`
         );
         setMovie(response.data);
         console.log("Response data: ", response.data);

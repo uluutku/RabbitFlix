@@ -6,7 +6,7 @@ import MovieDetail from "./Components/MovieDetail";
 import LandingHero from "./Components/Hero/LandingHero";
 import Footer from "./Components/Footer/Footer";
 
-const API_KEY = "30556d0cb32a2bb2d833c912c4ffec9f";
+const API_KEY = "52bdf0c8ba64d8f67f45c9f265769b80";
 
 const MOVIEGENRES = {
   Önerilen: "popularity.desc",
